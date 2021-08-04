@@ -1,7 +1,6 @@
 package com.project.board.domain;
 
 
-import lombok.Cleanup;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -14,11 +13,16 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long UserId;
+    private Long userId;
 
     @Column(nullable = false)
     private String userName;
 
     @Column(nullable = false)
     private String password;
+
+    public User(String username, String password) {
+        this.userName = username;
+        this.password = password;
+    }
 }

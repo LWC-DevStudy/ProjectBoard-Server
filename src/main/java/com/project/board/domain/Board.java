@@ -1,13 +1,16 @@
 package com.project.board.domain;
 
 
+import com.project.board.dto.BoardRequestDto;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
-public class Board {
+@Getter
+public class Board extends Timestamped{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,10 +22,17 @@ public class Board {
     @Column(nullable = false)
     private String title;
 
-    public Board(Long boardId, String contents, String title) {
-        this.boardId = boardId;
-        this.contents = contents;
-        this.title = title;
+    @ManyToOne
+    private User user;
+
+    public Board(BoardRequestDto boardRequestDto, User user) {
+        this.contents = boardRequestDto.getContents();
+        this.title = boardRequestDto.getTitle();
+        this.user = user;
     }
 
+    public void edit(BoardRequestDto requestDto) {
+        this.contents = requestDto.getContents();
+        this.title = requestDto.getTitle();
+    }
 }

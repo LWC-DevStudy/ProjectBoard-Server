@@ -1,5 +1,7 @@
 package com.project.board.security;
 
+import com.project.board.exception.ApiException;
+import com.project.board.exception.ApiRequestException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

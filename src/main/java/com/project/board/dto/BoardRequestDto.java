@@ -10,6 +10,6 @@ public class BoardRequestDto {
 
     private Long boardId;
     private String title;
-    private String contents;
+    private String content;
 
 }

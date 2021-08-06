@@ -1,6 +1,8 @@
 package com.project.board.controller;
 
 
+import com.project.board.domain.Board;
+import com.project.board.domain.User;
 import com.project.board.dto.SignupRequestDto;
 import com.project.board.dto.UserRequestDto;
 import com.project.board.service.UserService;
@@ -20,9 +22,9 @@ public class UserController {
         return userService.login(requestDto);
     }
 
-    @PostMapping("/user/register")
-    public void userRegister(@RequestBody SignupRequestDto signupRequestDto){
-        userService.registerUser(signupRequestDto);
+    @PostMapping("/register")
+    public User userRegister(@RequestBody SignupRequestDto signupRequestDto){
+        return userService.registerUser(signupRequestDto);
     }
 
 }

@@ -3,6 +3,7 @@ package com.project.board.controller;
 
 import com.project.board.domain.Board;
 import com.project.board.dto.BoardRequestDto;
+import com.project.board.dto.BoardResponseDto;
 import com.project.board.security.UserDetailsImpl;
 import com.project.board.service.BoardService;
 import lombok.RequiredArgsConstructor;

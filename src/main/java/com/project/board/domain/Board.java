@@ -17,7 +17,7 @@ public class Board extends Timestamped{
     private Long boardId;
 
     @Column(nullable = false)
-    private String contents;
+    private String content;
 
     @Column(nullable = false)
     private String title;
@@ -26,13 +26,13 @@ public class Board extends Timestamped{
     private User user;
 
     public Board(BoardRequestDto boardRequestDto, User user) {
-        this.contents = boardRequestDto.getContents();
+        this.content = boardRequestDto.getContent();
         this.title = boardRequestDto.getTitle();
         this.user = user;
     }
 
     public void edit(BoardRequestDto requestDto) {
-        this.contents = requestDto.getContents();
+        this.content = requestDto.getContent();
         this.title = requestDto.getTitle();
     }
 }

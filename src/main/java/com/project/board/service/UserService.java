@@ -36,7 +36,7 @@ public class UserService {
     }
 
 
-    public void registerUser(SignupRequestDto signupRequestDto){
+    public User registerUser(SignupRequestDto signupRequestDto){
         String username = signupRequestDto.getUserName();
 
         Optional<User> found = userRepository.findByUserName(username);
@@ -65,5 +65,6 @@ public class UserService {
 
         User user = new User(username, password);
         userRepository.save(user);
+        return user;
     }
 }
